@@ -1,0 +1,154 @@
+.block_summary {
+  .card-title {
+    padding-left: 20px;
+  }
+
+  @color-primary: #000091;
+  @color-text-primary: #333;
+  @color-text-secondary: #727272;
+  @color-secondary: #e5e5f4;
+
+  .summary-list {
+    list-style-type: none;
+    padding: 0;
+    font-size: 15px;
+
+    .summary {
+      margin-bottom: 1em;
+      line-height: 20px;
+      padding-bottom: 6px;
+
+      &:not(:last-child)::after {
+        content: '';
+        display: block;
+        width: 95%;
+        border-bottom: solid 1px #e6e6e6;
+        transform: translate(16px, 10px);
+        margin-bottom: 6px;
+      }
+
+      .summary-section,
+      .summary-content-element {
+        padding: 6px 10px 6px 12px;
+
+        &:hover,
+        &:focus {
+          background: white;
+          text-decoration: none;
+          border: 2px solid @color-primary;
+          padding: 4px 8px 4px 10px;
+          outline: none;
+        }
+      }
+
+      a {
+        flex: 1;
+        color: @color-text-primary;
+        text-decoration: none;
+        box-shadow: none;
+        background: none;
+      }
+
+      .summary-section {
+        background-color: transparent;
+        color: @color-text-primary;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        text-align: left;
+
+        .summary-link {
+          outline: none;
+          flex: 1;
+          display: flex;
+          
+          &:focus-visible {
+            outline: solid 2px @color-primary;
+            outline-offset: 2px;
+          }
+
+          &:first-child {
+            .restraint {
+              top: 6px;
+            }
+          }
+
+          .fa {
+            margin-right: 4px;
+            margin-left: 4px;
+          }
+
+          .summary-element-name {
+            flex: 1;
+          }
+
+          .restraint {
+            color: @color-text-secondary;
+          }
+        }
+
+        .summary-button {
+          background-color: transparent;
+          color: @color-text-primary;
+          border: none;
+
+          &:focus-visible {
+            outline: solid 2px @color-primary;
+            outline-offset: 2px;
+          }
+        }
+      }
+
+      .summary-content {
+        margin-top: 6px;
+        padding-left: 16px;
+        display: none;
+
+        &.show {
+          display: block;
+        }
+
+        ul {
+          list-style-type: none;
+          padding: 0;
+          margin: 0;
+
+          li>a {
+            text-align: left;
+            display: flex;
+            align-items: center;
+
+            .summary-content-element-name {
+              flex: 1;
+            }
+
+            .restraint {
+              color: @color-text-secondary;
+              margin-right: 32px;
+            }
+          }
+        }
+      }
+
+      .is-current {
+        color: @color-primary;
+        border-left: 2px solid @color-primary;
+        background-color: @color-secondary;
+        padding-left: 10px;
+
+        a {
+          color: @color-primary;
+        }
+      }
+
+      .current-child {
+        border-left: 2px solid @color-primary;
+        padding-left: 10px;
+      }
+    }
+  }
+
+  .editbutton {
+    float: right;
+  }
+}

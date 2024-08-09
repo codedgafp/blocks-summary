@@ -1,0 +1,58 @@
+<nav class="section-list" role="navigation" aria-label="Sommaire de la formation">
+    <ul class="summary-list">
+    {{# sections }}
+        {{# visiblecapability }}
+        <li class="summary">
+            <div class="summary-section{{# hascurrentchild }} current-child{{/ hascurrentchild }}{{# iscurrent }} is-current{{/ iscurrent }}">
+                <a href="{{ url }}" aria-label="{{ name }}"  aria-current="{{# iscurrent }}page{{/ iscurrent }}{{^ iscurrent }}false{{/ iscurrent }}" class="summary-link">
+                    <span class="summary-element-name">{{ name }}</span>
+                    <div class="restraint">
+                        {{# hide }}<i class="fa fa-eye-slash" aria-hidden="true"></i>{{/ hide }}
+                        {{^ hide }}
+                            {{# hasrestriction }}<i class="fa fa-lock" aria-hidden="true"></i>{{/ hasrestriction }}
+                        {{/ hide }}
+                </div>
+                </a>
+                {{# haschild }}
+                <button class="summary-button" 
+                aria-label="{{ i18nsummarysublistof }} {{ name }}" 
+                aria-expanded="{{# hascurrentchild }}true{{/ hascurrentchild }}{{^ hascurrentchild }}false{{/ hascurrentchild }}"
+                aria-controls="id_{{id}}">
+                    <i class="summary-chevron fa fa-chevron-{{# hascurrentchild }}up{{/ hascurrentchild }}{{^ hascurrentchild }}down{{/ hascurrentchild }}" aria-hidden="true"></i>
+                </button>
+                {{/ haschild }}
+            </div>
+            
+            {{# haschild }}
+            <div class="summary-content {{# hascurrentchild }}show{{/ hascurrentchild }}" id="id_{{id}}">
+                <ul class="sub">
+                {{# sections }}
+                    {{# visiblecapability }}
+                    <li>
+                        <a href="{{ url }}" aria-label="{{ name }}" aria-current="{{# iscurrent }}page{{/ iscurrent }}{{^ iscurrent }}false{{/ iscurrent }}" class="summary-content-element {{# iscurrent }} is-current{{/ iscurrent }}">
+                            <span class="summary-content-element-name">{{ name }}</span>
+                            <div class="restraint">
+                                {{# hide }}<i class="fa fa-eye-slash" aria-hidden="true"></i>{{/ hide }}
+                                {{^ hide }}
+                                    {{# hasrestriction }}<i class="fa fa-lock" aria-hidden="true"></i>{{/ hasrestriction }}
+                                {{/ hide }}
+                            </div>
+                        </a>
+                    </li>
+                    {{/ visiblecapability }}
+                {{/ sections }}
+                </ul>
+            </div>
+            {{/ haschild }}
+        </li>
+        {{/ visiblecapability }}
+    {{/ sections }}
+    </ul>
+</nav>
+
+{{# edit }}
+    <a href="{{ editurl }}" class="editbutton">
+        <i class="fa fa-pencil"></i>
+        {{# str }} edition, block_summary {{/ str }}
+    </a>
+{{/ edit }}

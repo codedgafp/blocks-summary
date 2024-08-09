@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<XMLDB PATH="blocks/summary/db" VERSION="20150518" COMMENT="XMLDB file for Moodle blocks/summary"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:noNamespaceSchemaLocation="../../../lib/xmldb/xmldb.xsd"
+>
+    <TABLES>
+        <TABLE NAME="block_summary_edit_lock" COMMENT="Summary block edit lock">
+            <FIELDS>
+                <FIELD NAME="id" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="true" COMMENT="Identifiant unique"/>
+                <FIELD NAME="courseid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifiant du cours"/>
+                <FIELD NAME="userid" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Identifiant de l'utilisateur"/>
+                <FIELD NAME="timecreated" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Date de création"/>
+                <FIELD NAME="lastupdate" TYPE="int" LENGTH="10" NOTNULL="true" SEQUENCE="false" COMMENT="Date de dernière mise a jour"/>
+            </FIELDS>
+          <KEYS>
+            <KEY NAME="primary" TYPE="primary" FIELDS="id" COMMENT=""/>
+          </KEYS>
+          <INDEXES>
+            <INDEX NAME="course" UNIQUE="true" FIELDS="courseid"/>
+            <INDEX NAME="course-user" UNIQUE="false" FIELDS="courseid, userid"/>
+          </INDEXES>
+        </TABLE>
+    </TABLES>
+</XMLDB>

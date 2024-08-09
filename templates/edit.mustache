@@ -1,0 +1,10 @@
+<h2>{{# str }} editsummarytitle, block_summary {{/str}}</h2>
+<ol class="edit-list edit-list-main lock">
+    {{# sections }}
+        {{> block_summary/edit-item }}
+    {{/ sections }}
+</ol>
+<form class="edit-form" action="">
+    <button class="add-section" disabled="disabled"><i class="fa fa-plus"></i> {{# str }} addsection, block_summary {{/ str }}</button>
+    <input type="submit" id="save" disabled="disabled" name="save" value="{{# str }} saveupdate, block_summary {{/ str }}">
+</form>

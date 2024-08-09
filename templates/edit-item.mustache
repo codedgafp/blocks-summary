@@ -1,0 +1,20 @@
+<li
+        class="edit-item{{# child }} child{{/ child }}"
+    {{# id }}data-id="{{ id }}"
+    {{/id}}
+    {{# child }}data-parent="{{ parentid }}"{{/ child }}
+    data-depth="{{ depth }}"
+    style="--item-depth: {{ margindepth }}px"
+>
+    <div class="{{^ hide }} hide{{/ hide }}">
+        <button class="move fa fa-arrows" title="{{# str }} movesection, block_summary {{/ str }}"></button>
+        <div class="title">{{ name }}</div>
+        <button class="edit fa fa-pencil" data-action="edit" title="{{# str }} updatetitlesection, block_summary {{/ str }}"></button>
+        <button class="hide fa fa-eye{{^ hide }}-slash{{/ hide }}" data-action="hide"
+                title="{{# str }} showhidesection, block_summary {{/ str }}"
+        ></button>
+        <button class="delete fa fa-times" data-action="delete" title="{{# str }} deletesection, block_summary {{/ str }}"></button>
+    </div>
+    <div class="child-holder">
+    </div>
+</li>
